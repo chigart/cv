@@ -1,0 +1,24 @@
+.container {
+  z-index: 1;
+  width: 1200px;
+  margin: 100px calc((100vw - 1200px) / 2) 0;
+  position: absolute;
+  top: 0;
+}
+
+.header {
+  color: rgba(white, .2);
+  transition: color 1s;
+
+  &:hover {
+    color: var(--black);
+  }
+}
+
+.flex {
+  display: flex;
+
+  span:first-child {
+    margin-right: 30px;
+  }
+}
