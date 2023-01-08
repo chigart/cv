@@ -62,7 +62,7 @@ const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
   const saveColoredCV = async (): Promise<void> => {
     const canvas = await html2canvas(document.body, { foreignObjectRendering: true });
     const dataURL = canvas.toDataURL('image/png');
-    downloadjs(dataURL, 'AntonMalkovInteractiveCV.png', 'image/png');
+    downloadjs(dataURL, 'AntonMalkovColoredCV.png', 'image/png');
   };
 
   const saveCV = () => downloadjs('/AntonMalkovCV.pdf');
