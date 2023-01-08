@@ -5,7 +5,7 @@ export type Coordinates = {
   y: number;
 };
 
-export type PaletteColors = 'red' | 'green' | 'blue' | 'white' | 'black';
+export type PaletteColors = 'red' | 'green' | 'blue' | 'white' | 'black' | 'pink' | 'yellow';
 
 export type ColorboxProps = {
   variant: PaletteColors;
@@ -34,3 +34,18 @@ export type WindowSize = {
   width: number;
   height: number;
 }
+
+export type ExternalLinkProps = {
+  href: string;
+  text: string;
+}
+
+export type ContactProps = {
+  showContact: boolean;
+}
+
+export type ActionsProps = {
+  saveColoredCV: () => Promise<void>;
+  saveCV: () => boolean | XMLHttpRequest;
+  toggleShowContact: () => void;
+};

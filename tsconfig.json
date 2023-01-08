@@ -39,6 +39,9 @@
       ],
       "@/hooks/*": [
         "hooks/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
       ]
     },
     "incremental": true

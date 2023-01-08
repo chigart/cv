@@ -1,8 +1,12 @@
 Interactive CV
 https://antonmalkov.netlify.app/
 
+- different features for different lights, animations
+
+check
+- eslint
 - clean code
-- different features for different lights, animations on green, link to travel page on blue, contacts on red (with links)
+- full testing
 
 after
 - mobile version

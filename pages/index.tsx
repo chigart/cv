@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Montserrat } from '@next/font/google';
-import styles from '@/styles/Home.module.scss';
-import Layout from '@/components/Layout';
+import styles from './Home.module.scss';
+import Layout from '@/layouts/Main';
 import useLocalStorageState from 'use-local-storage-state';
 import clsx from 'clsx';
 
@@ -19,8 +19,8 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <main className={montserrat.className}>
+      <main className={montserrat.className}>
+        <Layout>
           <div className={styles.container}>
             <h1 className={clsx(darkMode && styles.header)}>
               ANTON MALKOV
@@ -28,12 +28,10 @@ export default function Home(): JSX.Element {
             <p>
               <b>Frontend Developer</b> | English B2 - С1
             </p>
-            <p>
-              antonmalkovdev@gmail.com | @antonmalkov (Telegram)
-            </p>
             <h2>
               WORK EXPERIENCE
             </h2>
+
             <section className={styles.flex}>
               <span>
                 <p>
@@ -46,13 +44,15 @@ export default function Home(): JSX.Element {
                 </p>
               </span>
             </section>
+
             <p>
               <b>Current tech stack:</b> CSS (Sass, Bootstrap, Material UI), Javascript (Typescript, Axios),  <br/>
               React (Redux, Next JS, Jest + Storybook, React Hook Form + Yup, React Admin), Git (Gitlab), Figma.
             </p>
             <p>
               <b>April 2022 - october 2022</b> - Debertech (Tbilisi, Georgia) <br/>
-              Main <b>frontend developer</b> in admin panel project for a payment system.
+              Main <b>frontend developer</b> in admin panel project for a payment system. <br/>
+              Full frontend development in React. Moved legacy projects from Vue to React.
             </p>
             <p>
               <b>August 2021 - march 2022</b> - ITMO University (St. Petersburg, Russia) <br/>
@@ -69,6 +69,7 @@ export default function Home(): JSX.Element {
               Wordpress based website, custom theme with javascript and CSS, development and support.
             </p>
             <h2>EDUCATION</h2>
+
             <section className={styles.flex}>
               <span>
                 <p>
@@ -84,11 +85,10 @@ export default function Home(): JSX.Element {
                   Media communications (master)
                 </p>
               </span>
-
             </section>
           </div>
-        </main>
-      </Layout>
+        </Layout>
+      </main>
     </>
   );
 }

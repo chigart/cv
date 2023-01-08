@@ -17,18 +17,21 @@ import Canvas from '@/components/Canvas';
 import useWindowSize from '@/hooks/useWindowSize';
 import clsx from 'clsx';
 import { ImSwitch } from 'react-icons/im';
-import { AiOutlineClear } from 'react-icons/ai';
-import { BsDownload } from 'react-icons/bs';
-import { FiDownloadCloud } from 'react-icons/fi';
 import html2canvas from 'html2canvas';
 import downloadjs from 'downloadjs';
+import Contact from '@/layouts/Main/Contact';
+import Actions from '@/layouts/Main/Actions';
 
 const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
   const [mousePos, setMousePos] = useLocalStorageState<Coordinates>('mousePos', { defaultValue: { x: defaultPositionX, y: defaultPositionY } });
   const [circleSize, setCircleSize] = useLocalStorageState('circleSize', { defaultValue: defaultCircleSize });
   const [color, setColor] = useLocalStorageState<PaletteColors>('color', { defaultValue: defaultLightColor });
   const [darkMode, setDarkMode] = useLocalStorageState('darkMode', { defaultValue: true });
+  const [showContact, setShowContact] = useLocalStorageState('contact', { defaultValue: false });
   const colorboxParams = { color, setColor, darkMode };
+
+  const toggleShowContact = () => setShowContact(current => !current);
+  const toggleDarkMode = () => setDarkMode(current => !current);
 
   const { width, height } = useWindowSize();
 
@@ -65,40 +68,31 @@ const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
     downloadjs(dataURL, 'AntonMalkovColoredCV.png', 'image/png');
   };
 
-  const saveCV = () => downloadjs('/AntonMalkovCV.pdf');
+  const saveCV = (): boolean | XMLHttpRequest => downloadjs('/AntonMalkovCV.pdf');
 
   return (
     <>
-      { darkMode ? <Light {...{ color, circleSize, mousePos }}/> : <Canvas {...{ width, height, color, circleSize }}/>}
+      { darkMode ?
+        <Light {...{ color, circleSize, mousePos }}/> :
+        <Canvas {...{ width, height, color, circleSize }}/>
+      }
 
-      <aside className={clsx(styles.toolbar, styles.toolbar_top)}>
+      <aside className={clsx(styles.toolbar, styles.toolbar__top)}>
         <Colorbox variant='red' {...colorboxParams}/>
         <Colorbox variant='green' {...colorboxParams}/>
         <Colorbox variant='blue' {...colorboxParams}/>
         <ImSwitch
           className={clsx(styles.toolbar__icon, darkMode ? styles.toolbar__icon_off : styles.toolbar__icon_on)}
-          onClick={() => setDarkMode(current => !current)}
+          onClick={toggleDarkMode}
         />
       </aside>
 
       { !darkMode &&
-        <aside className={clsx(styles.toolbar, styles.toolbar_bottom)}>
-          <FiDownloadCloud
-            className={styles.toolbar__icon}
-            onClick={saveColoredCV}
-            title='Colored CV'
-          />
-          <BsDownload
-            className={styles.toolbar__icon}
-            onClick={saveCV}
-            title='CV pdf'
-          />
-          <AiOutlineClear
-            className={styles.toolbar__icon}
-            onClick={() => window.location.reload()}
-            title='Clear'
-          />
-        </aside>
+        <>
+          <Contact showContact={showContact}/>
+
+          <Actions {...{ saveColoredCV, saveCV, toggleShowContact }}/>
+        </>
       }
 
       { children }

@@ -1,10 +1,11 @@
 :root {
-  --black: rgb(10,10,10);
-  --white: rgb(255,255,255);
-  --red: rgb(255,69,0);
-  --green: rgb(0,250,154);
-  --blue: rgb(0,191,255);
-  --pink: rgb(255,20,147);
+  --black:rgb(10,10,10);
+  --white:rgb(255,255,255);
+  --red:rgb(255,69,0);
+  --green:rgb(0,250,154);
+  --blue:rgb(0,191,255);
+  --pink:rgb(255,20,147);
+  --yellow:rgb(255,215,0);
 }
 
 * {
@@ -20,7 +21,6 @@ body {
   overflow: hidden;
   cursor: none;
   background: var(--black);
-  user-select: none;
   color: var(--black);
 
   &.colored {
@@ -38,7 +38,7 @@ body {
 
 p {
   position: relative;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   line-height: 1.5;
 }
 
