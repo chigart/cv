@@ -1,9 +1,17 @@
+@import "styles/mixins";
+
 .container {
   z-index: 1;
   width: 1200px;
   margin: 100px calc((100vw - 1200px) / 2) 0;
   position: absolute;
   top: 0;
+
+  @include media(mobile) {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
 }
 
 .header {
@@ -20,5 +28,21 @@
 
   span:first-child {
     margin-right: 30px;
+  }
+
+  @include media(mobile) {
+    display: block;
+
+    span:first-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.contact {
+  display: none;
+
+  @include media(mobile) {
+    display: block;
   }
 }

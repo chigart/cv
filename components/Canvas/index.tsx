@@ -8,6 +8,7 @@ const Canvas: FC <CanvasProps> = ({ width, height, color, circleSize }): JSX.Ele
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isPainting, setIsPainting] = useState(false);
   const [mousePosition, setMousePosition] = useState<Coordinates | undefined>(undefined);
+  const [cursor, setCursor] = useState('none');
   const strokeWidth =  Math.floor(circleSize / (color === 'white' ? 10 : 20));
   const cssColor = useCssColor(color);
 
@@ -18,6 +19,10 @@ const Canvas: FC <CanvasProps> = ({ width, height, color, circleSize }): JSX.Ele
       setIsPainting(true);
     }
   }, []);
+
+  useEffect(() => {
+    setCursor(renderCursor(strokeWidth, cssColor));
+  }, [strokeWidth, cssColor]);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -88,8 +93,6 @@ const Canvas: FC <CanvasProps> = ({ width, height, color, circleSize }): JSX.Ele
       context.stroke();
     }
   };
-
-  const cursor = renderCursor(strokeWidth, cssColor);
 
   return (
     <canvas

@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import clsx from 'clsx';
-import styles from '@/layouts/Main/Layout.module.scss';
+import styles from '@/layouts/Main/Main.module.scss';
 import { FiDownloadCloud } from 'react-icons/fi';
 import { BsDownload } from 'react-icons/bs';
 import { AiOutlineClear } from 'react-icons/ai';

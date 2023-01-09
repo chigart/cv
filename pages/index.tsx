@@ -4,6 +4,7 @@ import styles from './Home.module.scss';
 import Layout from '@/layouts/Main';
 import useLocalStorageState from 'use-local-storage-state';
 import clsx from 'clsx';
+import Contact from '@/layouts/Main/Contact';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -28,6 +29,7 @@ export default function Home(): JSX.Element {
             <p>
               <b>Frontend Developer</b> | English B2 - С1
             </p>
+
             <h2>
               WORK EXPERIENCE
             </h2>
@@ -68,7 +70,10 @@ export default function Home(): JSX.Element {
               <b>From 2016 to 2018</b> worked part-time for a non-profit organization.  <br/>
               Wordpress based website, custom theme with javascript and CSS, development and support.
             </p>
-            <h2>EDUCATION</h2>
+
+            <h2>
+              EDUCATION
+            </h2>
 
             <section className={styles.flex}>
               <span>
@@ -85,6 +90,14 @@ export default function Home(): JSX.Element {
                   Media communications (master)
                 </p>
               </span>
+            </section>
+
+            <section className={styles.contact}>
+              <h2>
+                CONTACT
+              </h2>
+
+              <Contact />
             </section>
           </div>
         </Layout>

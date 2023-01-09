@@ -16,15 +16,18 @@
 
 html,
 body {
-  max-width: 100vw;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   cursor: none;
   background: var(--black);
   color: var(--black);
+  user-select: none;
 
   &.colored {
+    overflow-y: unset;
     background: var(--white);
+    user-select: text;
 
     h1 {
       color: var(--green);
@@ -34,6 +37,11 @@ body {
       color: var(--blue);
     }
   }
+}
+
+#__next {
+  height: 100%;
+  position: relative;
 }
 
 p {

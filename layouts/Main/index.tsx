@@ -1,4 +1,4 @@
-import styles from './Layout.module.scss';
+import styles from './Main.module.scss';
 import Colorbox from '@/components/Colorbox';
 import Light from '@/components/Light';
 import { useEffect, FC } from 'react';
@@ -21,6 +21,7 @@ import html2canvas from 'html2canvas';
 import downloadjs from 'downloadjs';
 import Contact from '@/layouts/Main/Contact';
 import Actions from '@/layouts/Main/Actions';
+import useMobileVersion from '@/hooks/useMobileVersion';
 
 const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
   const [mousePos, setMousePos] = useLocalStorageState<Coordinates>('mousePos', { defaultValue: { x: defaultPositionX, y: defaultPositionY } });
@@ -29,6 +30,7 @@ const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
   const [darkMode, setDarkMode] = useLocalStorageState('darkMode', { defaultValue: true });
   const [showContact, setShowContact] = useLocalStorageState('contact', { defaultValue: false });
   const colorboxParams = { color, setColor, darkMode };
+  const isMobileVersion = useMobileVersion(setDarkMode);
 
   const toggleShowContact = () => setShowContact(current => !current);
   const toggleDarkMode = () => setDarkMode(current => !current);
@@ -72,24 +74,31 @@ const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
 
   return (
     <>
-      { darkMode ?
-        <Light {...{ color, circleSize, mousePos }}/> :
-        <Canvas {...{ width, height, color, circleSize }}/>
+      { !isMobileVersion && (
+        darkMode ?
+          <Light {...{ color, circleSize, mousePos }}/> :
+          <Canvas {...{ width, height, color, circleSize }}/>
+      )
       }
 
-      <aside className={clsx(styles.toolbar, styles.toolbar__top)}>
-        <Colorbox variant='red' {...colorboxParams}/>
-        <Colorbox variant='green' {...colorboxParams}/>
-        <Colorbox variant='blue' {...colorboxParams}/>
-        <ImSwitch
-          className={clsx(styles.toolbar__icon, darkMode ? styles.toolbar__icon_off : styles.toolbar__icon_on)}
-          onClick={toggleDarkMode}
-        />
-      </aside>
+      { !isMobileVersion &&
+        <aside className={clsx(styles.toolbar, styles.toolbar__top)}>
+          <Colorbox variant='red' {...colorboxParams}/>
+          <Colorbox variant='green' {...colorboxParams}/>
+          <Colorbox variant='blue' {...colorboxParams}/>
+          <ImSwitch
+            className={clsx(styles.toolbar__icon, darkMode ? styles.toolbar__icon_off : styles.toolbar__icon_on)}
+            onClick={toggleDarkMode}
+          />
+        </aside>
+      }
 
-      { !darkMode &&
+
+      { !darkMode && !isMobileVersion &&
         <>
-          <Contact showContact={showContact}/>
+          <aside className={clsx(styles.toolbar, styles.toolbar__middle, !showContact && styles.toolbar__middle_hidden)}>
+            <Contact />
+          </aside>
 
           <Actions {...{ saveColoredCV, saveCV, toggleShowContact }}/>
         </>

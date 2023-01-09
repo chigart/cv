@@ -7,7 +7,3 @@ check
 - eslint
 - clean code
 - full testing
-
-after
-- mobile version
-
