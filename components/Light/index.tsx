@@ -5,6 +5,7 @@ import useCssColor from '@/hooks/useCssColor';
 const WrappedComponent: FC <LightProps> = ({ mousePos, circleSize, color }): JSX.Element => {
   const cssColor = useCssColor(color);
   const blackColor = useCssColor('black');
+  const whiteColor = useCssColor('white');
 
   return (
     <div style={{
@@ -13,7 +14,8 @@ const WrappedComponent: FC <LightProps> = ({ mousePos, circleSize, color }): JSX
       top: `${mousePos.y - circleSize / 2}px`,
       width: `${circleSize}px`,
       height: `${circleSize}px`,
-      background: `radial-gradient(circle ${circleSize / 2}px, ${cssColor}, ${blackColor})`,
+      background: `radial-gradient(circle ${circleSize / 2}px, ${whiteColor}, 50%, transparent), 
+        radial-gradient(circle ${circleSize / 2}px, ${cssColor}, ${blackColor})`,
     }}/>
   );
 };

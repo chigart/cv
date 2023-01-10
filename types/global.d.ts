@@ -40,8 +40,8 @@ export type ExternalLinkProps = {
   text: string;
 }
 
-export type ContactProps = {
-  showContact: boolean;
+export type HintProps = {
+  color: PaletteColors;
 }
 
 export type ActionsProps = {

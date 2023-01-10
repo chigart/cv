@@ -57,23 +57,3 @@
     }
   }
 }
-
-.link {
-  text-decoration: none;
-  color: unset;
-  transition: color .3s;
-
-  &:hover {
-    color: var(--pink);
-  }
-
-  p {
-    text-shadow:  var(--white) 1px 0 10px;
-
-    @include media(mobile) {
-      padding: 8px 0;
-      text-align: center;
-      border: 1px solid var(--yellow);
-    }
-  }
-}

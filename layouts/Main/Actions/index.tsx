@@ -1,5 +1,4 @@
 import React, { FC, memo } from 'react';
-import clsx from 'clsx';
 import styles from '@/layouts/Main/Main.module.scss';
 import { FiDownloadCloud } from 'react-icons/fi';
 import { BsDownload } from 'react-icons/bs';
@@ -9,7 +8,7 @@ import { ActionsProps } from '@/types/global';
 
 const WrappedComponent: FC <ActionsProps> = ({ saveColoredCV, saveCV, toggleShowContact }): JSX.Element => {
   return (
-    <aside className={clsx(styles.toolbar, styles.toolbar__bottom)}>
+    <>
       <FiDownloadCloud
         className={styles.toolbar__icon}
         onClick={saveColoredCV}
@@ -30,7 +29,7 @@ const WrappedComponent: FC <ActionsProps> = ({ saveColoredCV, saveCV, toggleShow
         onClick={toggleShowContact}
         title='Contact'
       />
-    </aside>
+    </>
   );
 };
 

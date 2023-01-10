@@ -1,4 +1,4 @@
-import styles from '../Main.module.scss';
+import styles from './ExternalLink.module.scss';
 import { ExternalLinkProps } from '@/types/global';
 import { FC, memo } from 'react';
 

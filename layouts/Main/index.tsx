@@ -19,9 +19,10 @@ import clsx from 'clsx';
 import { ImSwitch } from 'react-icons/im';
 import html2canvas from 'html2canvas';
 import downloadjs from 'downloadjs';
-import Contact from '@/layouts/Main/Contact';
+import Contact from '@/components/Contact';
 import Actions from '@/layouts/Main/Actions';
 import useMobileVersion from '@/hooks/useMobileVersion';
+import Hint from '@/components/Hint';
 
 const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
   const [mousePos, setMousePos] = useLocalStorageState<Coordinates>('mousePos', { defaultValue: { x: defaultPositionX, y: defaultPositionY } });
@@ -76,7 +77,10 @@ const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
     <>
       { !isMobileVersion && (
         darkMode ?
-          <Light {...{ color, circleSize, mousePos }}/> :
+          <>
+            <Light {...{ color, circleSize, mousePos }}/>
+            <Hint {...{ color }}/>
+          </> :
           <Canvas {...{ width, height, color, circleSize }}/>
       )
       }
@@ -93,14 +97,15 @@ const Layout: FC <LayoutProps> = ({ children }): JSX.Element => {
         </aside>
       }
 
-
       { !darkMode && !isMobileVersion &&
         <>
           <aside className={clsx(styles.toolbar, styles.toolbar__middle, !showContact && styles.toolbar__middle_hidden)}>
             <Contact />
           </aside>
 
-          <Actions {...{ saveColoredCV, saveCV, toggleShowContact }}/>
+          <aside className={clsx(styles.toolbar, styles.toolbar__bottom)}>
+            <Actions {...{ saveColoredCV, saveCV, toggleShowContact }}/>
+          </aside>
         </>
       }
 

@@ -1,9 +1,4 @@
-Interactive CV
+Interactive CV, try it out ->
 https://antonmalkov.netlify.app/
 
-- different features for different lights, animations
-
-check
-- eslint
-- clean code
-- full testing
+All of my previous projects are NDA protected, so I created this simple example.

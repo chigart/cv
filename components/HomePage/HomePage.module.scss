@@ -3,7 +3,8 @@
 .container {
   z-index: 1;
   width: 1200px;
-  margin: 100px calc((100vw - 1200px) / 2) 0;
+  height: calc(100% - 200px);
+  margin: 100px calc((100vw - 1200px) / 2);
   position: absolute;
   top: 0;
 
@@ -14,16 +15,7 @@
   }
 }
 
-.header {
-  color: rgba(white, .2);
-  transition: color 1s;
-
-  &:hover {
-    color: var(--black);
-  }
-}
-
-.flex {
+.table {
   display: flex;
 
   span:first-child {
@@ -45,4 +37,12 @@
   @include media(mobile) {
     display: block;
   }
+}
+
+.flex {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
