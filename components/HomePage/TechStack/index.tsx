@@ -4,7 +4,7 @@ import React from 'react';
 const TechStack = (): JSX.Element => {
   const techList = ['Pascal', 'React', 'C', 'C++', 'Python', 'SQL', 'Javascript', 'Typescript', 'HTML', 'CSS', 'SASS', 'Material UI',
     'Bootstrap', 'Axios', 'Redux', 'NextJS', 'Jest', 'Storybook', 'Figma', 'Next', 'Git', 'Gitlab', 'Gitlab', 'Yarn', 'Npm', 'REST API',
-    'BEM', 'Webpack', 'ESLint', 'Vue', 'GatsbyJS'];
+    'BEM', 'Webpack', 'ESLint', 'Vue', 'GatsbyJS', 'PHP', 'Symphony'];
 
   const renderCircles = () => {
     const circles = [];
