@@ -1,3 +1,5 @@
+Last updated in 2023 — I've gained more experience since then.
+
 Interactive CV, try it out ->
 https://antonmalkov.netlify.app/
 
