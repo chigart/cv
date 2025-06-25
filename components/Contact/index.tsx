@@ -9,8 +9,8 @@ const WrappedComponent = (): JSX.Element => {
       <ExternalLink href='https://github.com/chigart' text='Github' />
       <ExternalLink href='https://www.linkedin.com/in/antmalk/' text='Linkedin' />
       <ExternalLink href='https://www.codewars.com/users/chigart' text='Codewars' />
-      <ExternalLink href='https://www.instagram.com/antonmalkovphoto' text='Instagram' />
-      <ExternalLink href='https://www.facebook.com/antonmalkovphoto' text='Facebook' />
+      <ExternalLink href='https://www.instagram.com/antonclimbs' text='Instagram' />
+      <ExternalLink href='https://www.facebook.com/antonclimbs' text='Facebook' />
       <ExternalLink href='https://telegram.me/antonmalkov' text='Telegram' />
     </>
   );
