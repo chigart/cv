@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Montserrat } from '@next/font/google';
+import { Montserrat } from 'next/font/google';
 import HomePage from '@/components/HomePage';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
